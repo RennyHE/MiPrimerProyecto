@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Lista de Países</h1>
+  <ul>
+    {% for pais in paises %}
+      <li>{{ pais.nombre }} ({{ pais.codigo }})- <a href="{% url 'modificar_pais' pais.id %}">Modificar</a> | <a href="{% url 'eliminar_pais' pais.pk %}">Eliminar</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'agregar_pais' %}">Agregar País</a>
+{% endblock %}
